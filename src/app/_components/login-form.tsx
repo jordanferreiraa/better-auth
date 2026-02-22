@@ -56,6 +56,13 @@ export function LoginForm() {
       })
   }
 
+  async function handleSignInWithTwitch() {
+    await authClient.signIn.social({
+      provider: "twitch",
+      callbackURL: "/dashboard",
+    })
+  }
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -133,7 +140,7 @@ export function LoginForm() {
           type="button"
           variant="outline"
           className="w-full bg-[#9146FF] text-white hover:bg-[#7d3bdf] hover:text-white"
-          onClick={async () => { }}
+          onClick={handleSignInWithTwitch}
         >
           <TwitchLogo className="mr-2 h-4 w-4" />
           Entrar com Twitch

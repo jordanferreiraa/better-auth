@@ -10,4 +10,10 @@ export const auth = betterAuth({
         enabled: true,
         requireEmailVerification: false,
     },
+    socialProviders: {
+        twitch: { 
+            clientId: process.env.TWITCH_CLIENT_ID as string, 
+            clientSecret: process.env.TWITCH_CLIENT_SECRET as string, 
+        }, 
+    }
 });
